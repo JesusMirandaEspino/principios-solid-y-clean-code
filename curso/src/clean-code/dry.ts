@@ -22,15 +22,17 @@ class Product {
                 default: throw  Error('Type is not su supported');
             }
         }
+
+        return true;
     }
 
 
     toString(){
-        // code if(this.name.length < 0) throw new Error('Name is empty.');
-        // code if(this.price  <= 0) throw new Error('Price is wrong.');
-        // code if(this.size.length <=  0) throw new Error('Size is empty.');
+        if( !this.isProductReady ){
+            return;
+        }
 
-        // code return `${this.name} (${this.price}), ${this.size}`
+        return `${this.name} (${this.price}), ${this.size}`
 
 
 
