@@ -8,11 +8,26 @@ class Product {
     }
 
     toString(){
-        if(this.name.length < 0) throw new Error('Name is empty.');
-        if(this.price  <= 0) throw new Error('Price is wrong.');
-        if(this.size.length <=  0) throw new Error('Size is empty.');
+        // code if(this.name.length < 0) throw new Error('Name is empty.');
+        // code if(this.price  <= 0) throw new Error('Price is wrong.');
+        // code if(this.size.length <=  0) throw new Error('Size is empty.');
 
-        return `${this.name} (${this.price}), ${this.size}`
+        // code return `${this.name} (${this.price}), ${this.size}`
+
+
+        for( const key in this ){
+            switch(typeof key){
+                case 'string': 
+                            if(key.length < 0) throw new Error('Name is empty.');
+                            break;
+
+                case 'number': 
+                            if(key  <= 0) throw new Error('menor to cero, it is wrong.');
+                            break;
+
+                default: break;
+            }
+        }
     }
 }
 
