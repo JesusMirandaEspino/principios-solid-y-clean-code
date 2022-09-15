@@ -7,6 +7,24 @@ class Product {
                     public size: Size = ''){
     }
 
+
+    isProductReady(){
+        for( const key in this ){
+            switch(typeof key){
+                case 'string': 
+                            if( ( <string><unknown>this[key]).length < 0) throw new Error('Name is empty.');
+                            break;
+
+                case 'number': 
+                            if( ( <number><unknown>this[key])  <= 0) throw new Error('menor to cero, it is wrong.');
+                            break;
+
+                default: throw  Error('Type is not su supported');
+            }
+        }
+    }
+
+
     toString(){
         // code if(this.name.length < 0) throw new Error('Name is empty.');
         // code if(this.price  <= 0) throw new Error('Price is wrong.');
@@ -15,19 +33,7 @@ class Product {
         // code return `${this.name} (${this.price}), ${this.size}`
 
 
-        for( const key in this ){
-            switch(typeof key){
-                case 'string': 
-                            if(key.length < 0) throw new Error('Name is empty.');
-                            break;
 
-                case 'number': 
-                            if(key  <= 0) throw new Error('menor to cero, it is wrong.');
-                            break;
-
-                default: break;
-            }
-        }
     }
 }
 
