@@ -16,8 +16,23 @@
         }
     }
 
-    const person1 = new Person( 'Jesus', 'M', new Date('1988-04-16') )
+    class User extends Person {
+        constructor(
+            public email: string,
+            public role: string,
+            private lastAccess: Date,
+            name: string,
+            gender: Gender,
+            birthDate: Date
+        ){
+            super( name, gender, birthDate);
+        }
 
-    console.log( { person1 } )
+        checkCredentials(){
+            return true;
+        }
+
+        
+    }
 
 })();
