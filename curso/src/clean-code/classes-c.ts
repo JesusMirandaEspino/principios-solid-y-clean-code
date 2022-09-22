@@ -23,29 +23,19 @@
 
 
     interface UserProps {
-        name: string;
-        gender: Gender; 
-        birthDate: Date;
         email: string;
         role: string;
     }
 
 
-    class User extends Person {
+    class User  {
         private lastAccess: Date;
         public email: string;
         public role: string;
-        public name: string;
-        public gender: Gender;
-        public birthDate: Date;
-        constructor( { email, role, name, gender, birthDate }: UserProps ){
-            super( { name, gender, birthDate });
+        constructor( { email, role }: UserProps ){
             this.lastAccess = new Date;
             this.email = email;
             this.role = role;
-            this.name = name;
-            this.gender = gender;
-            this.birthDate = birthDate;
         }
 
         checkCredentials(){
@@ -53,6 +43,23 @@
         }
     }
 
+
+    interface SettingsProps {
+        workingDirectory:   string;
+        lastOpenFolder:     string;
+    }
+
+
+    
+    class Settings  {
+        public workingDirectory:    string;
+        public lastOpenFolder:      string;
+        
+        constructor( {workingDirectory, lastOpenFolder }: SettingsProps ){
+            this.workingDirectory = workingDirectory;
+            this.lastOpenFolder = lastOpenFolder;
+        }
+    }
 
     interface UserSettingsProps {
         name:       string;
@@ -64,26 +71,14 @@
         lastOpenFolder:     string;
     }
 
-
-    class UserSettings extends User {
-
-        public email:       string;
-        public role:        string;
-        public name:        string;
-        public gender:      Gender;
-        public birthDate:   Date;
-        public workingDirectory:    string;
-        public lastOpenFolder:      string;
-        
-        constructor( {workingDirectory, lastOpenFolder, email, role, name, gender, birthDate}: UserSettingsProps ){
-            super({ email, role, name, gender, birthDate });
-            this.email = email;
-            this.role = role;
-            this.name = name;
-            this.gender = gender;
-            this.birthDate = birthDate;
-            this.workingDirectory = workingDirectory;
-            this.lastOpenFolder = lastOpenFolder;
+    class UserSettings{
+        public person: Person;
+        public user: User;
+        public settings: Settings;
+        constructor(  {workingDirectory, lastOpenFolder, email, role, name, gender, birthDate}: UserSettingsProps ){
+            this.person = new Person({ name, gender, birthDate});
+            this.user = new User({ email, role });
+            this.settings = new Settings({ workingDirectory, lastOpenFolder });
         }
     }
 
