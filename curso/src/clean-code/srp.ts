@@ -11,6 +11,19 @@
             // Realiza un proceso para obtener el producto y retornarlo
             console.log('Producto: ',{ id, name: 'OLED Tv' });
         }
+        saveProduct( product: Product ) {
+            // Realiza una petición para salvar en base de datos 
+            console.log('Guardando en base de datos', product );
+        }
+    }
+
+
+    class Mailer {
+        private masterEmail: string = 'email.example@mail.com';
+
+        senEmail( emailList: string[], template: 'to-clientes' | 'to-admins'  ){
+            console.log('Enviando correo a los clientes', template, emailList );
+        }
     }
     
     // Usualmente, esto es una clase para controlar la vista que es desplegada al usuario
