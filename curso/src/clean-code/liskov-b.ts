@@ -52,3 +52,28 @@ export class Honda extends Vehicle {
         return this.numberOfSeats;
     }
 }
+
+
+export class Volvo extends Vehicle {
+
+    constructor( private numberOfSeats: number ) {
+        super();
+    }
+
+    getNumberOfSeats() {
+        return this.numberOfSeats;
+    }
+}
+
+
+export class Ford extends Vehicle {
+
+    constructor( private numberOfSeats: number ) {
+        super();
+    }
+
+    getNumberOfSeats() {
+        return this.numberOfSeats;
+    }
+}
+
